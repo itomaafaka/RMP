@@ -1,0 +1,34 @@
+# базовый научный стек
+numpy
+pandas
+scipy
+matplotlib
+seaborn
+plotly
+
+# тайм-серии и эконометрика
+statsmodels
+pmdarima
+arch
+
+# оптимизация/риск
+cvxpy
+ecos
+osqp
+
+# кривая доходности
+nelson-siegel-svensson
+
+# ML (классика)
+scikit-learn
+xgboost
+
+# данные и ноутбуки
+pandas-datareader
+jupyterlab
+ipykernel
+
+# стиль кода
+black
+ruff
+
