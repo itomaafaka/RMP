@@ -1,15 +1,28 @@
-# BondsRisk — процентный риск облигационного портфеля РФ (2014–2025)
+# Interest Rate Risk of Russian Bond Portfolio
 
-**Цель.** Реплицируемый пайплайн: кривая доходности → PCA → ARIMA/(E)GARCH → VaR/ES (в т.ч. FHS) → стресс-сценарии → ML (логистическая регрессия нарушений VaR).
+Reproducible pipeline for interest rate risk analysis.  
+Methods: 
+→ yield curve 
+→ PCA 
+→ ARIMA/(E)GARCH 
+→ VaR/ES (incl. FHS) 
+→ stress scenarios 
+→ ML (logistic regression for VaR breaches).
 
-## Стек
-Python 3.11.13 (venv). Пакеты: numpy, pandas, scipy, matplotlib, seaborn, plotly, statsmodels, pmdarima, arch, cvxpy, nelson-siegel-svensson, scikit-learn, jupyterlab, xgboost.
+---
 
-## Структура
-data/{raw,processed} • notebooks • src (curve/pca/ts/garch/risk/stress/ml) • reports/{figures,tables} • configs • docs • references • tests
+## Tech Stack
 
-## Развёртывание
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt MD
+Language / runtime:  
+Python 3.11.13 (venv)
+
+Core packages:  
+- `numpy`, `pandas`, `scipy` — core math and statistics  
+- `matplotlib`, `seaborn`, `plotly` — visualization  
+- `statsmodels`, `pmdarima`, `arch` — time series, ARIMA, (E)GARCH  
+- `cvxpy`, `ecos`, `osqp` — optimization & risk models  
+- `nelson-siegel-svensson` — yield curve fitting  
+- `scikit-learn`, `xgboost` — machine learning (PCA, logistic regression, boosting)
+
+Workflow:  
+JupyterLab, VS Code  
