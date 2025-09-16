@@ -1,4 +1,4 @@
-# базовый научный стек
+# 
 numpy
 pandas
 scipy
