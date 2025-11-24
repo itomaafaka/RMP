@@ -1,0 +1,174 @@
+\RequirePackage{geometry}
+\geometry{
+  left=30mm, top=20mm, right=15mm, bottom=20mm,
+  includefoot, footskip=35pt
+}
+
+%===================== ЯЗЫК И ШРИФТЫ ==============
+\RequirePackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX,Renderer=HarfBuzz}
+\RequirePackage{polyglossia}
+\setdefaultlanguage{russian}
+\setotherlanguage{english}
+
+% еле подключил tnr (только на XeLaTeX)
+\setmainfont{Times New Roman}[Script=Cyrillic]
+\newfontfamily\russianfont{Times New Roman}[Script=Cyrillic]
+\newfontfamily\cyrillicfonttt{Courier New}[Script=Cyrillic]
+%===================== ОТСТУПЫ ============================
+\RequirePackage{setspace}
+\onehalfspacing
+\RequirePackage{indentfirst}
+\setlength\parindent{12.5mm}
+
+%================ ЗАГОЛОВКИ И СОДЕРЖАНИЕ ===================
+\RequirePackage{titlesec}
+\titleformat{\section}
+  {\fontsize{16}{16}\bfseries\centering}
+  {\hspace{-1.5mm}Глава \thesection.\hskip-1em}{1em}{}
+\titleformat{\subsection}
+  {\fontsize{14}{14}\bfseries}
+  {\thesubsection}{1em}{}
+\titlespacing{\subsection}{0pt}{0pt}{0pt}
+\titleformat{\subsubsection}
+  {\fontsize{14}{14}\bfseries}
+  {\thesubsubsection}{1em}{}
+\titlespacing{\subsubsection}{0pt}{0pt}{0pt}
+
+\RequirePackage{tocloft}
+\renewcommand{\cfttoctitlefont}{\hspace{0.31\textwidth}\bfseries\Large}
+\renewcommand{\cftbeforetoctitleskip}{-1em}
+\renewcommand{\cftsecpresnum}{Глава\space}
+\newlength\mylength
+\settowidth\mylength{\cftsecpresnum}
+\addtolength\cftsecnumwidth{\mylength}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecaftersnum}{.}
+\renewcommand{\cftsubsecaftersnum}{.}
+\setlength{\cftbeforesecskip}{4pt}
+\renewcommand{\cftsecpagefont}{\normalfont}
+
+%===================== ГИПЕРССЫЛКИ ============================
+\RequirePackage[colorlinks=false,unicode=true]{hyperref}
+
+%===================== MATH ================================
+\RequirePackage{amsmath,amssymb,amsthm}
+\RequirePackage{autonum}
+
+% --- Отступы вокруг отображаемых формул (figure*, \[ \], equation, align и т.п.)
+% По 0.5 * \baselineskip сверху и снизу (в сумме ≈ одна «строка» 1.5), без добавочного дефолтного зазора.
+\makeatletter
+\newcommand{\fixdisplayskips}{%
+  \setlength{\abovedisplayskip}{.5\baselineskip plus .15\baselineskip minus .15\baselineskip}%
+  \setlength{\belowdisplayskip}{.5\baselineskip plus .15\baselineskip minus .15\baselineskip}%
+  \setlength{\abovedisplayshortskip}{.35\baselineskip plus .1\baselineskip}% после короткой строки
+  \setlength{\belowdisplayshortskip}{.35\baselineskip plus .1\baselineskip minus .1\baselineskip}%
+}
+% Обновлять при смене размера шрифта (важно для заголовков, сносок и т.п.)
+\g@addto@macro\normalsize{\fixdisplayskips}
+\g@addto@macro\small{\fixdisplayskips}
+\g@addto@macro\footnotesize{\fixdisplayskips}
+\g@addto@macro\large{\fixdisplayskips}
+\g@addto@macro\Large{\fixdisplayskips}
+\g@addto@macro\LARGE{\fixdisplayskips}
+\makeatother
+
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\err}{err}
+\DeclareMathOperator{\mean}{\mathbb{E}}
+\DeclareMathOperator{\prob}{\mathbb{P}}
+
+%===================== MICROTYPE & JUSTIFY =================
+\RequirePackage[final]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath}
+
+\RequirePackage{ragged2e}
+\AtBeginDocument{\justifying\sloppy}
+
+% --- Гибкость набора без переносов ---
+\pretolerance=100
+\tolerance=10000
+\emergencystretch=8em
+
+\setlength{\spaceskip}{0.5em plus 0.6em minus 0.2em}
+\xspaceskip=\spaceskip
+
+\RequirePackage[none]{hyphenat}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\lefthyphenmin=100
+\righthyphenmin=100
+
+\hbadness=10000
+\hfuzz=2pt
+
+%===================== GRAPHICS & TABLES ===================
+\RequirePackage{graphicx}
+\graphicspath{{./source/}}
+\RequirePackage{array,longtable,tabularx,booktabs,makecell}
+
+%===================== CAPTION =============================
+\RequirePackage[font=small,labelfont=bf]{caption}
+% Имена и разделитель « – » только для рисунков и таблиц
+\DeclareCaptionLabelSeparator{ruendash}{\space–\space}
+\addto\captionsrussian{%
+  \renewcommand{\figurename}{Рисунок}%
+  \renewcommand{\tablename}{Таблица}%
+}
+\captionsetup[figure]{name=Рисунок,labelsep=ruendash}
+\captionsetup[table]{name=Таблица,labelsep=ruendash}
+
+%===================== ALGORITHMS ==========================
+\RequirePackage[vlined,boxed,ruled]{algorithm2e}
+\SetKw{KwRet}{Вернуть:}
+\SetKw{kwInp}{Вход:\\}
+\SetKw{kwOutp}{Выход:\\}
+\renewcommand{\algorithmcfname}{Псевдокод}
+
+%===================== MISC ================================
+\RequirePackage{textcomp,xcolor,listings,pdfpages,float}
+\RequirePackage{euscript}
+
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  frame=single,
+  breaklines=true,
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+}
+
+% Служебные команды
+\newcommand{\ITEM}{\vspace{-0.2cm}\item}
+\newcommand{\MList}[1]{\par\begin{itemize}#1\end{itemize}}
+\newcommand{\NList}[1]{\par\begin{enumerate}#1\end{enumerate}}
+
+% Спец-раздел (введение и т.п.)
+\newcommand{\specialsection}[1]{%
+  \phantomsection
+  \bigskip\smallskip
+  {\normalfont\fontsize{16}{16}\selectfont\textbf{#1}\par}%
+  \addcontentsline{toc}{section}{#1}%
+}
+
+%===================== BIBLИOGRAPHY HEADER =================
+\makeatletter
+\renewenvironment{thebibliography}[1]
+  {\bigskip
+   {\centering\large\bf Список литературы\par}%
+   \addcontentsline{toc}{section}{Список литературы}
+   \smallskip
+   \list{\@biblabel{\@arabic\c@enumiv}}%
+        {\settowidth\labelwidth{\@biblabel{#1}}%
+         \leftmargin\labelwidth
+         \advance\leftmargin\labelsep
+         \usecounter{enumiv}%
+         \let\p@enumiv\@empty
+         \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+   \sloppy
+   \clubpenalty4000
+   \@clubpenalty \clubpenalty
+   \widowpenalty4000%
+   \sfcode`\.\@m}
+  {\def\@noitemerr{\@latex@warning{Empty `thebibliography' environment}}%
+   \endlist}
+\makeatother

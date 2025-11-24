@@ -1,0 +1,65 @@
+\RequirePackage{etex}
+\documentclass[a4paper,14pt]{extarticle}
+% ОБЯЗАТЕЛЬНО ИМЕННО ТАКОЙ documentclass!
+% (Основной кегль = 14pt, поэтому необходим extsizes)
+% article потому что стандарт не подразумевает разделов
+% Глава = section, Параграф = section
+% Формат, разумеется, А4
+% (понятия "глава" и "параграф" из документа, описывающего диплом)
+
+% Подключаем главный пакет со всем необходимым
+\usepackage{diploma}
+\usepackage{float}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{lemma}[theorem]{Лемма}
+\newtheorem{proposition}[theorem]{Предложение}
+\newtheorem{corollary}[theorem]{Следствие}
+
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Определение}
+\newtheorem{notation}[theorem]{Обозначение}
+\newtheorem{example}[theorem]{Пример}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Замечание}
+
+\renewcommand{\proofname}{Доказательство}
+\renewcommand{\qedsymbol}{$\square$}
+
+\providecommand{\theoremautorefname}{Теорема}
+\providecommand{\lemmaautorefname}{Лемма}
+\providecommand{\propositionautorefname}{Предложение}
+\providecommand{\corollaryautorefname}{Следствие}
+\providecommand{\definitionautorefname}{Определение}
+\providecommand{\notationautorefname}{Обозначение}
+\providecommand{\exampleautorefname}{Пример}
+\providecommand{\remarkautorefname}{Замечание}
+
+\usepackage{array} % для m{} — вертикальное центрирование
+\usepackage{booktabs}
+
+\usepackage{multirow}
+\usepackage{pdfescape}
+
+\usepackage{caption}  % для управления подписями
+\captionsetup[table]{justification=raggedleft,singlelinecheck=false}
+
+\begin{document}
+\justifying
+\tableofcontents
+\clearpage
+
+\input{sections/introduction.tex}
+\input{sections/section 1/section_1.tex}
+\clearpage
+\input{sections/section 2/section_2.tex}
+\clearpage
+\input{sections/biblioteka.tex}
+
+\clearpage
+\appendix
+
+\end{document}
