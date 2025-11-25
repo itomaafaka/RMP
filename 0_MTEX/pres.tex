@@ -1,0 +1,199 @@
+\documentclass[aspectratio=169]{beamer}
+% Прогресс-бар и нумерация
+\usetheme[numbering=fraction,progressbar=frametitle]{metropolis}
+\usepackage{graphicx}
+\makeatletter
+\setbeamertemplate{progress bar in frametitle}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    % Размер и позиция «капсулы»
+    \def\barW{\paperwidth}     % ширина
+    \def\barH{0.15cm}          % высота полосы
+    \def\barY{-0.32cm}         % смещение вниз внутри area заголовка
+    % Прогресс (0..1)
+    \pgfmathsetmacro{\p}{\insertframenumber/\inserttotalframenumber}
+
+    % Фон (светлый), рамка и заполнение (оранжевое)
+    \path[rounded corners=0.08cm, draw=ClaudeOrange, line width=1pt, fill=ClaudeSand]
+      (0,\barY) rectangle (\barW,\barY+\barH);
+    \path[rounded corners=0.08cm, fill=ClaudeOrange]
+      (0,\barY) rectangle (\p*\barW,\barY+\barH);
+  \end{tikzpicture}%
+}
+\makeatother
+\metroset{block=fill}
+
+% --- Язык ---
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+% --- Шрифты и математика ---
+\usepackage[default]{opensans}
+\renewcommand{\familydefault}{\sfdefault}
+\usefonttheme{professionalfonts} 
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+
+% --- Цветовая схема ---
+\definecolor{ClaudeOrange1}{HTML}{4967D6}
+\definecolor{ClaudeOrange}{HTML}{E39A4C}
+\definecolor{ClaudeSand}{HTML}{F6F3EE}
+\definecolor{ClaudeDark}{HTML}{3C3328}
+
+\setbeamercolor{background canvas}{bg=ClaudeSand}
+\setbeamercolor{normal text}{fg=ClaudeDark}
+\setbeamercolor{frametitle}{bg=ClaudeOrange1, fg=ClaudeSand}
+\setbeamercolor{structure}{fg=ClaudeOrange}
+\setbeamercolor{block title}{fg=white,bg=ClaudeOrange}
+\setbeamercolor{block body}{bg=ClaudeSand,fg=ClaudeDark}
+
+% --- tcolorbox для блоков со скруглениями ---
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\colorlet{BlockBodyBG}{ClaudeSand}
+\colorlet{BlockTitleFG}{white}
+\colorlet{BlockFrame}{ClaudeOrange}
+
+\setbeamertemplate{block begin}{%
+  \begin{tcolorbox}[
+      enhanced,
+      breakable,
+      colback=white,
+      colframe=BlockFrame,
+      coltitle=BlockTitleFG,
+      arc=5pt,                    % радиус скругления (исправлено)
+      boxrule=0.1pt,              % толщина рамки
+      left=6pt,right=6pt,top=8pt,bottom=8pt, % внутренние отступы
+      before skip=8pt,after skip=8pt,        % внешние отступы
+      title=\insertblocktitle,
+      fonttitle=\bfseries
+  ]%
+}
+\setbeamertemplate{block end}{%
+  \end{tcolorbox}%
+}
+
+% --- Метаданные презентации ---
+\title{\huge{Хэджирование с помощью опционов}}
+\author{Выгузов Алексей — ЭКРмд-01-24}
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\begin{frame}{План презентации}
+    \tableofcontents
+\end{frame}
+
+\begin{frame}
+    \centering\Large\textbf{0. Банковский счёт, экспонента и интеграл}        
+\end{frame}
+
+\begin{frame}{Что такое банковский счёт?}
+    \begin{block}{Определение}
+        \textbf{Банковский счёт} (безрисковый актив) — это детерминированный процесс $\{B(t)\}_{t\ge 0}$, удовлетворяющий уравнению
+        $$
+        \frac{dB(t)}{dt} = r(t)\,B(t), \quad r(t) \text{ — известная безрисковая ставка.}
+        $$
+    \end{block}
+Начальное условие принято задавать как $B(0)=1$. Тогда решение имеет вид
+\[
+B(t) = \exp\!\left(\int_0^t r(s)\,ds\right).
+\]
+При постоянной ставке $r(t)\equiv r$ получаем классическую формулу:
+\[
+B(t)=e^{rt}.
+\]  
+\end{frame}
+
+\begin{frame}{Банковский счёт}
+    \textbf{Банковский счёт (безрисковый актив)} определяется как процесс $B(t)$, описывающий эволюцию капитала, размещённого под фиксированную и заранее известную процентную ставку $r$. Он обладает следующими свойствами:
+\begin{itemize}
+    \item \textbf{Детерминированность} - все значения заранее известны  
+    \item \textbf{Отсутствие риска дефолта} - гарантированная выплата
+    \item \textbf{Numeraire} — используется для оценки стоимости других активов
+    
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Что означает эта формалу}
+Пусть промежуток времени \([0,T]\) разбит на равные отрезки длины \(\Delta t\):
+\[
+0,\ \Delta t,\ 2\Delta t,\ \dots,\ n\Delta t = T,\qquad 
+\Delta t = \frac{T}{n}.
+\]
+Будем предполагать, что за один малый шаг времени капитал изменяется по правилу
+\[
+B(t+\Delta t) = B(t)\bigl(1+r\Delta t\bigr).
+\]
+После \(n\) шагов имеем
+\[
+B(T) = B(0)\,(1+r\Delta t)^n.
+\]
+\end{frame}
+
+
+\begin{frame}{Что означает эта формалу}
+    Переходя к пределу при \(\Delta t \to 0\) (то есть при \(n\to\infty\)), получаем
+\[
+\lim_{\Delta t\to 0} (1+r\Delta t)^{T/\Delta t} = e^{rT}.
+\]
+
+Таким образом, в пределе дискретная динамика переходит в дифференциальное уравнение
+\[
+\frac{dB(t)}{dt}
+= \lim_{\Delta t\to 0} 
+  \frac{B(t+\Delta t)-B(t)}{\Delta t}
+= r B(t).
+\]
+\end{frame}
+
+\begin{frame}{Пример}
+    Пусть на банковском счёте лежит сумма $B(0)=100{\,}000 \text{ рублей},$а годовая ставка равна ключевой ставке ЦБ РФ: $r = 16,5\% = 0.165.$\\
+Рассчитаем рост капитала за один год ($T=1$) при разных схемах начисления.
+\end{frame}
+
+\begin{frame}{Решение}
+1. Простые проценты (линейная модель):
+\begin{align*}
+B_{1}(1) &= 100{\,}000\left(1+\frac{0.16}{1}\right)^{1} = 100{\,}000 \cdot 1.16 = \bf{116{\,}000} \text{ рублей}.         
+\end{align*}
+2. Сложные проценты: капитализация раз в год ($n=1$):
+\begin{align*}
+B_{12}(1) &= 100{\,}000\left(1+\frac{0.16}{12}\right)^{12} \approx 100{\,}000 \cdot 1.17180 \approx \bf{117{\,}180} \text{ рублей}.
+\end{align*}
+3. Непрерывное начисление ($n\to\infty$):
+\[B_{\text{cont}}(1) = 100{\,}000\, e^{0.16} \approx 100{\,}000 \cdot 1.17351 \approx \bf{117{\,}351} \text{ рублей}.\]
+\end{frame}
+
+\begin{frame}
+    \begin{figure}[h]
+    \centering
+    \begin{center}
+        \includegraphics[width=0.85\textwidth]{bank_exponent.png}
+    \end{center}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Сравнение результатов}
+\[
+\overbrace{116{\,}000}^{{B_1(1)}}
+\;<\;
+\overbrace{117{\,}180}^{{B_{12}(1)}}
+\;<\;
+\overbrace{117{\,}351}^{{B_{\text{cont}}(1)}}
+\]
+
+\begin{itemize}
+    \item При простой схеме процент не капитализируется — итог меньше всех.
+    \item Чем чаще происходит капитализация, тем выше итоговая сумма.
+    \item Непрерывный рост даёт теоретический максимум: $e^{r}$.
+\end{itemize}
+\centering\textbf{Рост ускоряется со временем — \textbf{экспоненциальный эффект}.}
+\end{frame}
+
+
+\end{document}
