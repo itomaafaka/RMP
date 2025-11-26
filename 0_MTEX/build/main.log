@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.17)  26 NOV 2025 17:37
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.17)  26 NOV 2025 17:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -922,119 +922,63 @@ Package pdflscape Info: Auto-detected driver: dvipdfm (xetex) on input line 98.
 
 [1
 
-] (./sections/introduction.tex
+]
 
-[2
+[2] (./sections/introduction.tex
+
+[3
 
 ]
 
-[3]
+[4]
 
-[4]) (./sections/section 1/section_1.tex (./sections/section 1/1.1.1.tex
+[5]) (./sections/section 1/section_1.tex (./sections/section 1/1.1.1.tex
 
-LaTeX Warning: Citation `ShiryaevSFM' on page 5 undefined on input line 3.
-
-
-LaTeX Warning: Citation `ShiryaevProb1' on page 5 undefined on input line 5.
-
-
-LaTeX Warning: Citation `KoralovSinai' on page 5 undefined on input line 5.
-
-
-LaTeX Warning: Citation `markowitz1952' on page 5 undefined on input line 7.
-
-
-LaTeX Warning: Citation `ShiryaevSFM' on page 5 undefined on input line 9.
-
-
-
-[5
+[6
 
 ]) (./sections/section 1/1.1.2.tex
 
-LaTeX Warning: Citation `ShiryaevSFM' on page 6 undefined on input line 3.
-
-
-LaTeX Warning: Citation `ShiryaevSFM' on page 6 undefined on input line 5.
-
-
-LaTeX Warning: Citation `Hull2022' on page 6 undefined on input line 5.
-
-
-LaTeX Warning: Citation `Filipovic2009' on page 6 undefined on input line 7.
-
-
-
-[6]
-
-LaTeX Warning: Citation `KoralovSinai' on page 7 undefined on input line 9.
-
-) (./sections/section 1/1.1.3.tex
-
-LaTeX Warning: Citation `ShiryaevSFM' on page 7 undefined on input line 3.
-
-
-
-[7]
-
-LaTeX Warning: Citation `Filipovic2009' on page 8 undefined on input line 5.
-
-
-LaTeX Warning: Citation `KoralovSinai' on page 8 undefined on input line 7.
-
-
+[7]) (./sections/section 1/1.1.3.tex
 
 [8]
 
-LaTeX Warning: Citation `markowitz1952' on page 9 undefined on input line 9.
+[9]) (./sections/section 1/1.2.1.tex
 
-) (./sections/section 1/1.2.1.tex
+[10]
 
-[9]
+[11]) (./sections/section 1/1.2.2.tex
 
-LaTeX Warning: Citation `Hull2022' on page 10 undefined on input line 5.
+[12]) (./sections/section 1/1.2.3.tex
 
+[13]
 
-LaTeX Warning: Citation `Jorion2006' on page 10 undefined on input line 5.
+[14]) (./sections/section 1/1.3.1.tex
 
+[15]) (./sections/section 1/1.3.2.tex
 
-LaTeX Warning: Citation `ShiryaevSFM' on page 10 undefined on input line 17.
+[16]) (./sections/section 1/1.3.3.tex
 
+[17]
 
+[18]) (./sections/section 1/1.4.1.tex
 
-[10]) (./sections/section 1/1.2.2.tex
+[19]) (./sections/section 1/1.4.2.tex) (./sections/section 1/1.4.3.tex
 
-[11]) (./sections/section 1/1.2.3.tex
+[20]))
 
-[12]
+[21] (./sections/section 2/section_2.tex (./sections/section 2/2.1.1.tex
 
-[13]) (./sections/section 1/1.3.1.tex
-
-[14]) (./sections/section 1/1.3.2.tex
-
-[15]) (./sections/section 1/1.3.3.tex
-
-[16]
-
-[17]) (./sections/section 1/1.4.1.tex
-
-[18]) (./sections/section 1/1.4.2.tex) (./sections/section 1/1.4.3.tex
-
-[19]))
-
-[20] (./sections/section 2/section_2.tex (./sections/section 2/2.1.1.tex
-
-[21
+[22
 
 ]) (./sections/section 2/2.1.2.tex
 
-[22]) (./sections/section 2/2.1.3.tex
+[23]) (./sections/section 2/2.1.3.tex
 
-[23]) (./sections/section 2/2.2.1.tex) (./sections/section 2/2.2.2.tex) (./sections/section 2/2.2.3.tex))
+[24]) (./sections/section 2/2.2.1.tex) (./sections/section 2/2.2.2.tex) (./sections/section 2/2.2.3.tex))
 
-[24] (./sections/biblioteka.tex)
+[25] (./sections/biblioteka.tex)
 
-[25
+[26
 
 ]
 
@@ -1050,29 +994,16 @@ See the caption package documentation for explanation.
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  5DD23AC8DD9525F0205F3886FC408689;9958.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 5DD23AC8DD9525F0205F3886FC408689;9958.
  ) 
 Here is how much of TeX's memory you used:
- 22267 strings out of 473832
- 419321 string characters out of 5729481
- 912695 words of memory out of 5000000
- 44928 multiletter control sequences out of 15000+600000
+ 22264 strings out of 473832
+ 419255 string characters out of 5729481
+ 935100 words of memory out of 5000000
+ 44925 multiletter control sequences out of 15000+600000
  562815 words of font info for 81 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  94i,9n,107p,1019b,440s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on /Users/ito/RMP/0_MTEX/build/main.pdf (25 pages).
+Output written on /Users/ito/RMP/0_MTEX/build/main.pdf (26 pages).
