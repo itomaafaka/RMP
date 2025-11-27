@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.17)  27 NOV 2025 19:04
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.17)  27 NOV 2025 19:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -12713,14 +12713,9 @@ Missing character: There is no в (U+0432) in font [lmsans10-regular]:mapping=te
 Missing character: There is no о (U+043E) in font [lmsans10-regular]:mapping=tex-text;!
 Missing character: There is no г (U+0433) in font [lmsans10-regular]:mapping=tex-text;!
 Missing character: There is no о (U+043E) in font [lmsans10-regular]:mapping=tex-text;!
-Missing character: There is no Т (U+0422) in font [lmsans10-regular]:mapping=tex-text;!
-Missing character: There is no е (U+0435) in font [lmsans10-regular]:mapping=tex-text;!
-Missing character: There is no р (U+0440) in font [lmsans10-regular]:mapping=tex-text;!
-Missing character: There is no м (U+043C) in font [lmsans10-regular]:mapping=tex-text;!
-Missing character: There is no и (U+0438) in font [lmsans10-regular]:mapping=tex-text;!
-Missing character: There is no н (U+043D) in font [lmsans10-regular]:mapping=tex-text;!
-Missing character: There is no ы (U+044B) in font [lmsans10-regular]:mapping=tex-text;!
+Missing character: There is no В (U+0412) in font [lmsans10-regular]:mapping=tex-text;!
 Missing character: There is no с (U+0441) in font [lmsans10-regular]:mapping=tex-text;!
+Missing character: There is no е (U+0435) in font [lmsans10-regular]:mapping=tex-text;!
 Missing character: There is no с (U+0441) in font [lmsans10-regular]:mapping=tex-text;!
 Missing character: There is no о (U+043E) in font [lmsans10-regular]:mapping=tex-text;!
 Missing character: There is no к (U+043A) in font [lmsans10-regular]:mapping=tex-text;!
@@ -12975,11 +12970,6 @@ Missing character: There is no в (U+0432) in font [lmsans10-bold]:mapping=tex-t
 Missing character: There is no к (U+043A) in font [lmsans10-bold]:mapping=tex-text;!
 Missing character: There is no а (U+0430) in font [lmsans10-bold]:mapping=tex-text;!
 
-Overfull \hbox (6.89784pt too wide) in paragraph at lines 987--987
-[][]  
- []
-
-
 
 [67
 
@@ -13086,11 +13076,6 @@ Missing character: There is no т (U+0442) in font [lmsans10-bold]:mapping=tex-t
 Missing character: There is no е (U+0435) in font [lmsans10-bold]:mapping=tex-text;!
 Missing character: There is no л (U+043B) in font [lmsans10-bold]:mapping=tex-text;!
 Missing character: There is no ь (U+044C) in font [lmsans10-bold]:mapping=tex-text;!
-
-Overfull \hbox (13.79568pt too wide) in paragraph at lines 1022--1022
-[][]  
- []
-
 
 Overfull \vbox (20.8163pt too high) detected at line 1022
  []
@@ -13220,11 +13205,6 @@ Missing character: There is no о (U+043E) in font [lmsans10-bold]:mapping=tex-t
 Missing character: There is no с (U+0441) in font [lmsans10-bold]:mapping=tex-text;!
 Missing character: There is no т (U+0442) in font [lmsans10-bold]:mapping=tex-text;!
 Missing character: There is no ь (U+044C) in font [lmsans10-bold]:mapping=tex-text;!
-
-Overfull \hbox (20.69354pt too wide) in paragraph at lines 1044--1044
-[][]  
- []
-
 
 
 [69
@@ -13483,11 +13463,6 @@ Missing character: There is no а (U+0430) in font [lmsans10-bold]:mapping=tex-t
 Missing character: There is no т (U+0442) in font [lmsans10-bold]:mapping=tex-text;!
 Missing character: There is no а (U+0430) in font [lmsans10-bold]:mapping=tex-text;!
 
-Overfull \hbox (27.59138pt too wide) in paragraph at lines 1063--1063
-[][]  
- []
-
-
 
 [70
 
@@ -13514,10 +13489,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 33346 strings out of 473832
- 743648 string characters out of 5729481
+ 33354 strings out of 473832
+ 743720 string characters out of 5729481
  1164336 words of memory out of 5000000
- 55737 multiletter control sequences out of 15000+600000
+ 55745 multiletter control sequences out of 15000+600000
  576773 words of font info for 133 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  128i,18n,139p,1932b,1074s stack positions out of 10000i,1000n,20000p,200000b,200000s
